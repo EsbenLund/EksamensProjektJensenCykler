@@ -1,0 +1,955 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*ccs reset færdig*/
+
+
+/* Style til mobil*/
+@media (min-width: 100px) and (max-width: 799px) {
+    /* brugermenuen er lavet med inspiration fra https://alvarotrigo.com/blog/hamburger-menu-css/ 
+burgermenu nr 2 på siden. har ikke bare lavet et normalt copy paste, har selv overskrevet den til mit dokument
+så jeg kunne få en bedre føling med det, tilføje andre ord og værdier så det kunne passe til mit projekt.  */
+
+    /* Under denne kommentar vil jeg sætte de elementer fra pc html som ikke skal være synlig i mobil layout */
+    .pcmenu,
+    .pc_front_page_img,
+    .button_desktop,
+    .p_info_desktop {
+        display: none;
+    }
+
+
+    body {
+        width: 100%;
+        line-height: 1.3rem;
+    }
+
+    h1 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    p {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+
+    .container {
+        /*max-width: 1050px;*/
+        width: 100%;
+        margin: auto;
+    }
+
+    .nav_bar {
+        width: 100%;
+
+    }
+
+    .navi_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 1rem;
+    }
+
+
+
+    .nav_bar .navi_container li {
+        list-style: none;
+    }
+
+    .nav_bar .navi_container a {
+        text-decoration: none;
+        color: #0e2431;
+        font-weight: 300;
+        font-size: 1.2rem;
+        padding: 0.6rem;
+    }
+
+
+    .navi_container {
+        display: block;
+        position: relative;
+        height: 4rem;
+
+    }
+
+    .navi_container .checkbox {
+        position: absolute;
+        display: block;
+        height: 2rem;
+        width: 2rem;
+        top: 1rem;
+        left: 1rem;
+        z-index: 5;
+        opacity: 0;
+        cursor: pointer;
+
+    }
+
+    .navi_container .burger_menu {
+        display: block;
+        height: 1.6rem;
+        width: 2rem;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .navi_container .burger_menu .line {
+        display: block;
+        height: 0.25rem;
+        width: 100%;
+        border-radius: 10px;
+        background: #0e2431;
+    }
+
+    .navi_container .burger_menu .linetop {
+        transform-origin: 0% 0%;
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .navi_container .burger_menu .linemid {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .navi_container .burger_menu .linebottom {
+        transform-origin: 0% 100%;
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .nav_bar .menu_items {
+        padding-top: 4rem;
+        height: 40vh;
+        width: 100%;
+        transform: translate(-100%);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.4s ease-in-out;
+        text-align: center;
+        border-radius: 0 0 25px 25px;
+        background-color: white;
+
+    }
+
+    .nav_bar .menu_items li {
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .logo_img_box {
+        position: absolute;
+        top: 0;
+        left: 35%;
+        right: 35%;
+        z-index: 2;
+
+    }
+
+    .logo_img {
+        max-width: 100%;
+        height: 50px;
+        width: 180px;
+
+    }
+
+    /*--- Herunder er ccs til den lille animation i burgermenuen. her bliver linemid
+      gjort usynligt ved at at scale den. linetop og linemid bliver drejet 45 grader,
+      dermed opnås effekten og der bliver dannet et X når der klikkes på brugermenuen*/
+    .navi_container input[type="checkbox"]:checked~.menu_items {
+        transform: translateX(0);
+    }
+
+    .navi_container input[type="checkbox"]:checked~.burger_menu .linetop {
+        transform: rotate(45deg);
+    }
+
+    .navi_container input[type="checkbox"]:checked~.burger_menu .linemid {
+        transform: scaleY(0);
+    }
+
+    .navi_container input[type="checkbox"]:checked~.burger_menu .linebottom {
+        transform: rotate(-45deg);
+    }
+
+    /*
+      .navi_container input[type="checkbox"]:checked ~ .logo_img_box{
+        display: none;
+      }
+      */
+
+    /* burgermenu og navigation til mobil slutter her*/
+    /* styling af header*/
+
+    .header_box {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color:#0e2431 ;
+
+    }
+
+    .page_header {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        font-weight: 700;
+        color: white;
+        padding-top: 0.5rem;
+        text-decoration: underline;
+
+    }
+
+    .p_text {
+        font-size: 0.8rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+        background-color: #0e2431;
+        color: white;
+       
+    }
+
+    .front_page_img {
+        height: 250px;
+        width: 300px;
+        max-width: 100%;
+
+    }
+
+    /* Her begynder main content til mobil */
+    .content_box1 {
+        text-align: center;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 1rem;
+    }
+
+    .spec_list {
+        margin-top: 1rem;
+        text-align: center;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding-top: 0.5rem;
+
+    }
+
+
+    .list_img {
+        width: 300px;
+        height: 250px;
+
+    }
+  
+
+    .h1_cykel {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    
+
+    .spec_ul_list {
+       padding-top: 1rem;
+        margin-top: 0.5rem;
+        list-style: disc;
+        text-align: start;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-bottom: 1rem;
+        width: 90%;
+        margin-left: 5%;
+       margin-right: 5%;
+
+    }
+
+    .p_text_box {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .content_box2 {
+        width: 100%;
+        line-height: 1.5rem;
+        background-color: #0e2431;
+        color: white;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+       
+    }
+
+    .text_button_box {
+        width: 90%;
+        margin-right: 5%;
+        margin-left: 5%;
+        text-align: center;
+    }
+
+    .button_mobile {
+        background-color: #46c45b;
+        height: 3rem;
+        width: 15rem;
+        font-size: 1.5rem;
+        border: #46c45b;
+        border-radius: 10px;
+        margin-top: 1rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+
+    /* Styling af footer. Footeren skal være enkel og ikke fylde meget, eller taget for meget fokus.*/
+    .footer_box {
+        position: relative;
+        bottom: 0;
+        margin-top: 4rem;
+        background-color:black;
+        height: 10rem;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+
+
+    }
+
+
+    .footer_content,
+    a {
+        color: white;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+        text-decoration: none;
+        width: 50%;
+        line-height: 1.5rem;
+        font-size: 1rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+
+    }
+
+    .footer_img {
+        height: 50px;
+        width: 50px;
+
+    }
+
+    .footer_p {
+        font-size: 1.2rem;
+        color: #46c45b;
+
+    }
+
+    /* Footer sections slutter her*/
+
+    /* Konkurrence siden, hvor der skal laves betingelser, og spørgsmål, hvor jeg vil bruge input typer til at lave checkbox
+hvor man kan skrive navn, email osv. og et felt hvor man kan vælge sin uddanneses institution*/
+    .konkurrence_box {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin-left: 5%;
+        margin-left: 5%;
+
+    }
+
+    .betingelser_h1 {
+        text-align: center;
+        text-decoration: underline;
+    }
+
+    .betingelser {
+        border-bottom: 2px solid #363238;
+    }
+
+    .betingelser_li {
+        margin-top: 0.5rem;
+        list-style: disc;
+        text-align: start;
+        width: 90%;
+        margin-left: 5%;
+        margin-left: 5%;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    }
+
+    /* her kommer de spørgsmål som de besøgende på siden skal svare korrekt på. Har brugt w3schools til at opstille det på den rigtige måde
+    vi har før været inde på forskellige indput types i programmering, men skulle lige genopfriske det 
+    for at gøre det på den bedste måde. føler det er bedst at have en knap med bløde former, da den vil virke mere imødekommende
+    den grønne farve fanger brugerens blik og er som et "GO!"/grønt lys */
+
+    .svar_box {
+        margin-top: 0.9rem;
+    }
+
+    .svar_ {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .button {
+        background-color: #46c45b;
+        height: 3rem;
+        width: 8rem;
+        border: #46c45b;
+        border-radius: 10px;
+        margin-top: 1rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    }
+
+    /* afsnit med styling til "om os" siden på mobil */
+    .om_os_info_box{
+        text-align: start;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        
+
+    }
+
+    .info_box_content{
+       line-height: 2rem;
+       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       font-family: 0.9rem;
+    }
+    .h1_om_os{
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        
+    }
+    .om_os_img{
+        height: 300px;
+        width: 300px;
+    }
+
+    /* styling til gode råd op mobil*/
+    .raad_info_box{
+        text-align: start;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        
+
+    }
+
+    .raad_box_content{
+       line-height: 2.5rem;
+       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       font-size: 0.9rem;
+       
+    }
+    .h1_raad{
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        
+    }
+
+
+}
+
+/*DESKTOP*/
+/*Her begynder styling til desktop, for at ændre layout på nogen af stederne på siden
+vil jeg bruge "display:none" til at fjerne dem fra mobil eller desktop, hvis jeg vil bruge et andet element*/
+@media (min-width: 800px) {
+    p {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    h1 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    /**/
+
+    .nav_bar,
+    .front_page_img,
+    .button_mobile,
+    .p_info_mobile,
+    .betingelser_h1 {
+        display: none;
+    }
+
+    /*^elementer der ikke skal være synlig på desktop ^*/
+    body {
+        width: 100%;
+    }
+
+    .pcmenu {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        height: 2rem;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+        
+    }
+
+    .pclogo_img {
+        height: 50px;
+        width: 200px;
+    }
+
+    .pcmenu_items {
+        flex-direction: row;
+        text-decoration: none;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.2rem;
+        color: #0e2431;
+
+    }
+
+    .pcmenu_items:hover {
+        color: #3385a6;
+
+    }
+
+    /* Styling til pc header begynder her*/
+    .header_box {
+        width: 100%;
+        text-align: center;
+        background-color: #0e2431;
+        color: white;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+
+    }
+
+    .content_box1 {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .page_header {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #46c45b;
+
+    }
+
+    .pc_front_page_img {
+        height: 350px;
+        width: 700px;
+        max-width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* main delen til desktop*/
+
+
+
+
+
+    .p_text {
+        text-align: center;
+        width: 100%;
+        background-color: #0e2431;
+        color: white;
+    }
+
+    .h1_cykel {
+        text-align: start;
+        font-size: 1.3rem;
+        color: #46c45b;
+    }
+
+    .p_info_desktop {
+        text-align: start;
+    }
+
+    .spec_list {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        background-color: #0e2431;
+        color: white;
+        padding-left: 1rem;
+        padding-top: 1rem;
+
+    }
+
+    .list_img {
+        height: 380px;
+        width: 390px;
+        
+
+
+    }
+
+    .info_list_box {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-top: 1rem;
+        width: 100%;
+
+    }
+
+    .spec_ul_list {
+        list-style: disc;
+        text-align: start;
+        width: 100%;
+        height: 380px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        line-height: 2rem;
+        background-color: #0e2431;
+        color: white;
+        padding-left: 2rem;
+
+    }
+
+    .content_box2 {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 100%;
+        
+        background-color: #0e2431;
+        margin-bottom: 2rem;
+    }
+
+    .p_text_box {
+        flex-direction: column;
+        color: white;
+        line-height: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        width: 40%;
+
+    }
+
+    .p_text_box_img {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        align-items: center;
+    }
+
+    .list_img_pc {
+        height: 300px;
+        width: 300px;
+        text-align: center;
+
+    }
+    .img_bottom_box{
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Her vil min styling til konkurrence siden på desktop være. */
+ 
+    .betingelser_li{
+        list-style: disc;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .betingelser_li_h1{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        list-style: none;
+        font-size: 1.5rem;
+
+    }
+
+    .konkurrence_box {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        display: flex;
+        justify-content: space-around;
+        color: black;
+
+    }
+
+    .svar_box{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        border-left: 2px solid black;
+        padding-left: 3rem;
+        width: 40%;
+    }
+    .svar_{
+        margin-bottom: 1rem;
+    }
+
+    .button{
+        margin-top: 2rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        height: 4rem;
+        width: 15rem;
+        font-size: 2rem;
+        background-color: #46c45b;
+        border:#46c45b;
+        border-radius: 20px;
+        cursor: pointer;
+
+    }
+
+    /* her begynder styling til "om os" siden, her vil der være lidt text og et par billeder*/
+    .om_os_info_box{
+        text-align: start;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        
+
+    }
+
+    .info_box_content{
+       line-height: 2rem;
+       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       
+    }
+    .h1_om_os{
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        
+    }
+    .om_os_img{
+        height: 400px;
+        width: 600px;
+    }
+
+
+    /* styling til siden med gode råd*/
+    .raad_info_box{
+        text-align: start;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        
+
+    }
+
+    .raad_box_content{
+       line-height: 2rem;
+       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       
+    }
+    .h1_raad{
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        
+    }
+
+
+
+
+
+    /* styling af knappen der skal linke til konkurrence siden på desktop*/
+
+    .text_button_box {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        text-align: center;
+    }
+
+
+    .button_desktop {
+        background-color: #46c45b;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        width: 40rem;
+        height: 5rem;
+        cursor: pointer;
+        font-size: 2rem;
+        border: #46c45b;
+        border-radius: 20px;
+
+    }
+
+    /* styling af footer til desktop*/
+    .footer_box {
+        position: relative;
+        bottom: 0;
+        margin-top: 4rem;
+        background-color:black;
+        height: 10rem;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+    }
+
+
+    .footer_content,
+    a {
+        color: white;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+        text-decoration: none;
+        width: 50%;
+        font-size: 0.8rem;
+        line-height: 2rem;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    }
+
+    .footer_img {
+        height: 50px;
+        width: 50px;
+
+    }
+
+    .footer_p {
+        font-size: 1rem;
+        color: #46c45b;
+        line-height: 2rem;
+
+    }
+
+
+
+
+}

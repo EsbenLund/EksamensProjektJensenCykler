@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Deltag i Konkurrence og vær med i lodtrækningen om en Jensen Citybike C8">
+    <title>Jensen Cykler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+
+        <section class="nav_bar">
+            <!--denne menu er til mobil, og den vil jeg give display none i css-->
+            <section class="container navi_container">
+                <input class="checkbox" type="checkbox" name="menu" id="brugermenu">
+                <section class="burger_menu">
+                    <span class="line linetop"></span>
+                    <span class="line linemid"></span>
+                    <span class="line linebottom"></span>
+                </section>
+                <section class="logo_img_box">
+                    <img class="logo_img" src="img/jensenLogo.Webp" alt="Jensen Logo, med en rytter på sin cykel">
+                </section>
+                <section class="menu_items">
+                    <ul>
+                        <li><a href="index.html">CityBike C8</a></li>
+                        <li><a href="indexkonkurrence.html">Konkurrence</a></li>
+                        <li><a href="indexgoderaad.html">Gode Råd</a></li>
+                        <li><a href="indexOmOs.html">Om os</a></li>
+                    </ul>
+                </section>
+            </section>
+        </section>
+        <!--her slutter mobil version nedenunder vil desktop begynde-->
+        <section class="pcmenu">
+            <a class="pcmenu_items" href="index.html"><img class="pclogo_img" src="img/jensenLogo.Webp"
+                    alt="Jensen Logo, med en rytter på sin cykel"></a>
+            <a class="pcmenu_items" href="index.html">CityBike C8</a>
+            <a class="pcmenu_items" href="indexkonkurrence.html">Konkurrence</a>
+            <a class="pcmenu_items" href="indexgoderaad.html">Gode Råd</a>
+            <a class="pcmenu_items" href="indexOmOs.html">Om os</a>
+        </section>
+
+    </nav>
+    <header>
+        <h1 class="betingelser_h1">Konkurrence Betingelser</h1>
+    </header>
+    <main class="konkurrence_box">
+        <section class="betingelser">
+            <ul class="betingelser_li">
+                <li class="betingelser_li_h1">
+                    <h1>Kunkurrence Betingelser</h1>
+                </li>
+                <li>Fremvis studiekort og ID som bevis</li>
+                <li>Tilmeld dig nyhedsbrev via mail</li>
+                <li>Svare korrekt på sprøgsmålene</li>
+                <li>Vinderne trækkes 12-01-23</li>
+                <li>Præmien skal hentes ved Jensen Cykler</li>
+                <li>Der trækkes 2 vindere</li>
+
+            </ul>
+        </section>
+
+        <section class="svar_box">
+            <form class="svar_">
+                <p>Hvor mange års garanti er der på Citybike C8 stellet?</p>
+                <input type="radio" id="10aar" name="svar" value="10aar">
+                <label for="10aar">10 år</label><br><br>
+                <input type="radio" id="5aar" name="svar" value="5aar">
+                <label for="5aar">5 år</label><br><br>
+                <input type="radio" id="7aar" name="svar" value="7aar">
+                <label for="7aar">7 år</label><br><br>
+            </form>
+            <form class="svar_">
+                <p>Hvilke bremser er Jensen Citybike C8 udstyret med?</p>
+                <input type="radio" id="ShimanoRullebremser" name="svar" value="Shimano Rullebremser">
+                <label for="10aar">Shimano Rullebremser</label><br><br>
+                <input type="radio" id="ShimanoSkivebremser" name="svar" value="Shimano Skivebremser">
+                <label for="5aar">Shimano Skivebremser</label><br><br>
+                <input type="radio" id="Shimanofealgebremser" name="svar" value="Shimano Fealgebremser">
+                <label for="7aar">Shimano Fælgebremser</label><br><br>
+            </form>
+            <form class="svar_">
+                <p>Hvor mange gear har Jensen Citybike C8</p>
+                <input type="radio" id="8indvendige" name="svar" value="8indvendige">
+                <label for="10aar">8 indvendige gear</label><br><br>
+                <input type="radio" id="8udvendige" name="svar" value="8udvendige">
+                <label for="5aar">8 udvendige gear</label><br><br>
+                <input type="radio" id="5indvendige" name="svar" value="5indvendige">
+                <label for="7aar">5 indvendige gear</label><br><br>
+            </form>
+            <form class="svar_">
+                <label for="fname">Fornavn:</label><br>
+                <input type="text" id="fornavn" name="fornavn"><br>
+            </form>
+            <form class="svar_">
+                <label for="lname">Efternavn:</label><br>
+                <input type="text" id="lname" name="efternavn"><br>
+            </form>
+            <form class="svar_">
+                <label for="email">E-Mail:</label><br>
+                <input type="text" id="email" name="email"><br>
+            </form>
+            <form class="svar_">
+                <label for="fname">Fødselsdag:</label><br>
+                <input type="text" id="fname" name="foedselsdag">
+            </form>
+            <form class="svar_">
+                <p>Uddannelses institution:</p>
+                <select>
+                    <option>-Vælg-</option>
+                    <option>EAAA</option>
+                    <option>BSS</option>
+                    <option>VIA</option>
+                    <option>Maskinmesterskolen</option>
+                    <option>Arkitektskolen</option>
+                </select>
+            </form>
+
+            <form action="index.html">
+                <button class="button">Deltag</button>
+            </form>
+
+
+
+
+        </section>
+
+
+
+    </main>
+
+
+    <footer class="footer_box">
+        <section class="footer_content">
+            <p class="footer_p"> Følg os her</p>
+            <a href="https://www.facebook.com/JensenCyklerDK/"><img class="footer_img" src="img/facebook.Webp"
+                    alt="Facebook logo der linker til jensen cykler facebook side"></a>
+            <a href="https://www.instagram.com/jensencykler/?hl=da"><img class="footer_img" src="img/instagram.Webp"
+                    alt="Instagram logo der linker til jensen cykler instagram side"></a>
+        </section>
+        <address class="footer_content">
+            <p class="footer_p">Kontakt</p>
+            <ul>
+                <li><a class="footer_aLink" href="indexkonkurrence.html">Vestre Ringgade 27-29
+                        8000 Aarhus C.</a></li>
+                <li><a class="footer_aLink" href="indexkonkurrence.html">Telefonnr.: 86155599</a></li>
+                <li><a class="footer_aLink" href="indexkonkurrence.html">info@jensencykler.com</a></li>
+            </ul>
+        </address>
+    </footer>
+
+</body>
+
+</html>
